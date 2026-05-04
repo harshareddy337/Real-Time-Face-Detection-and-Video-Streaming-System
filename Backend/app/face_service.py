@@ -1,13 +1,16 @@
 from PIL import Image, ImageDraw
 import numpy as np
 import cv2
+import os
 
-face_cascade = cv2.CascadeClassifier('Backend/app/haarcascade_frontalface_default.xml')
+cascade_path = os.path.join(os.path.dirname(__file__), 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(cascade_path)
 
 
 def detect_face(image):
-    image = image.convert("RGB")
-    frame = np.array(image)
+    """Detect faces in an image and draw bounding boxes."""
+    image_rgb = image.convert("RGB")
+    frame = np.array(image_rgb)
     gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 

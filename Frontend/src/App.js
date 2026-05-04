@@ -10,8 +10,8 @@ function App() {
   const [rois, setRois] = useState([]);
 
   useEffect(() => {
-    const uploadWs = new WebSocket("ws://localhost:8000/ws/upload");
-    const streamWs = new WebSocket("ws://localhost:8000/ws/stream");
+    const uploadWs = new WebSocket("ws://localhost:8001/ws/upload");
+    const streamWs = new WebSocket("ws://localhost:8001/ws/stream");
 
     uploadWs.onopen = () => setStatus("Connected 🟢");
     streamWs.onmessage = (event) => {
@@ -43,7 +43,7 @@ function App() {
 
     const roiInterval = setInterval(async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/rois");
+        const res = await axios.get("http://localhost:8001/api/rois");
         setRois(res.data.slice(-5));
       } catch {}
     }, 2000);
