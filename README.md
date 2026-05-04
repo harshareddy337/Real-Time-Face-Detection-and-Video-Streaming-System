@@ -7,7 +7,7 @@ This project implements a real-time face detection pipeline using WebSockets, Fa
 The system:
 
 * Accepts live video frames
-* Detects faces using OpenCV Haar Cascades
+* Detects faces using MediaPipe (no OpenCV used)
 * Draws ROI bounding boxes
 * Stores ROI data in PostgreSQL (in containerized environment) or SQLite (locally)
 * Streams processed video back to client
@@ -36,7 +36,7 @@ Client → `/ws/upload` → Face Detection → Database
 
 * FastAPI
 * WebSockets
-* OpenCV (Face Detection)
+* MediaPipe (Face Detection)
 * Pillow (Image Processing)
 * PostgreSQL / SQLite
 * React.js
@@ -59,7 +59,6 @@ cd ../Frontend
 npm install
 npm start
 ```
-docker-compose up
 ```
 
 Open:
@@ -74,6 +73,7 @@ Open:
 * Database persistence
 * Live streaming via WebSockets
 * Containerized architecture
+Face detection is implemented using MediaPipe to comply with the requirement of not using OpenCV.
 
 ---
 
