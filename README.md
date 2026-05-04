@@ -107,3 +107,4 @@ All implementation decisions and integration were validated and tested manually.
 ✔ Documentation → complete setup guide
 
 ---
+<img width="1919" height="1020" alt="Screenshot 2026-05-04 161848" src="https://github.com/user-attachments/assets/dc0d4b5b-a20d-445e-b31e-21546bf2b2ef" />
